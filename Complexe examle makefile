@@ -10,7 +10,38 @@ complexe.o : Complexe.c Complexe.h
 #comment
 
 
+all: $(APPLI) clean
+$(APPLI): $(APPLI).o Complexe.o
+#       gcc -Wall $(APPLI)
+        gcc -Wall -lm $(APPLI).o Complexe.o -o $(APPLI)
+$(APPLI).o: $(APPLI).c Complexe.h
+        gcc -Wall -c $(APPLI).c
+Complexe.o: Complexe.c Complexe.h
+        gcc -Wall -c Complexe.c
+# suppressio des fichier objet
+clean : $(APPLI)
+        rm -f *.o
 
+#////////////////////////////
+
+──(saad㉿kali)-[~/Desktop/progsysone]
+└─$ nano makefile                                                                            2 ⨯
+                                                                                                 
+┌──(saad㉿kali)-[~/Desktop/progsysone]
+└─$ make APPLI=usecomplexe
+gcc -Wall -c usecomplexe.c
+gcc -Wall -c Complexe.c
+gcc -Wall -lm usecomplexe.o Complexe.o -o usecomplexe
+rm -f *.o
+
+──(saad㉿kali)-[~/Desktop/progsysone]
+└─$ ./usecomplexe
+Module de z3 : 1.500000
+Argument de z3 : 0.800000
+
+                 
+
+#comment ///////////////////////////////////
 
 
 
