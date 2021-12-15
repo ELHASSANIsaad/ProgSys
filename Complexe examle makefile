@@ -1,0 +1,16 @@
+
+cc = gcc
+iusecomplexe : usecomplexe.o  Complexe.o
+       $(cc) -Wall -lm usecomplexe.o Complexe.o -o usecomplexe
+usecomplexe.o : usecomplexe.c Complexe.h
+       $(cc) -Wall -c usecomplexe.c
+complexe.o : Complexe.c Complexe.h
+       $(cc) -Wall -c Complexe.c
+
+#comment
+
+
+
+
+
+
